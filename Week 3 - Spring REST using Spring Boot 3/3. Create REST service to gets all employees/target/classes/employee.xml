@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Departments -->
+
+    <bean id="dept1" class="com.cognizant.ormlearn.model.Department">
+        <property name="id" value="1"/>
+        <property name="name" value="Payroll"/>
+    </bean>
+
+    <bean id="dept2" class="com.cognizant.ormlearn.model.Department">
+        <property name="id" value="2"/>
+        <property name="name" value="Finance"/>
+    </bean>
+
+    <bean id="dept3" class="com.cognizant.ormlearn.model.Department">
+        <property name="id" value="3"/>
+        <property name="name" value="HR"/>
+    </bean>
+
+    <!-- Skills -->
+
+    <bean id="skill1" class="com.cognizant.ormlearn.model.Skill">
+        <property name="id" value="1"/>
+        <property name="name" value="Java"/>
+    </bean>
+
+    <bean id="skill2" class="com.cognizant.ormlearn.model.Skill">
+        <property name="id" value="2"/>
+        <property name="name" value="Spring"/>
+    </bean>
+
+    <bean id="skill3" class="com.cognizant.ormlearn.model.Skill">
+        <property name="id" value="3"/>
+        <property name="name" value="Angular"/>
+    </bean>
+
+    <!-- Employee 1 -->
+
+    <bean id="emp1" class="com.cognizant.ormlearn.model.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="John"/>
+        <property name="salary" value="50000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="dept1"/>
+        <property name="skillList">
+            <set>
+                <ref bean="skill1"/>
+                <ref bean="skill2"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Employee 2 -->
+
+    <bean id="emp2" class="com.cognizant.ormlearn.model.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Priya"/>
+        <property name="salary" value="45000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="dept2"/>
+        <property name="skillList">
+            <set>
+                <ref bean="skill1"/>
+                <ref bean="skill3"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Employee 3 -->
+
+    <bean id="emp3" class="com.cognizant.ormlearn.model.Employee">
+        <property name="id" value="3"/>
+        <property name="name" value="Rahul"/>
+        <property name="salary" value="48000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="dept3"/>
+        <property name="skillList">
+            <set>
+                <ref bean="skill2"/>
+                <ref bean="skill3"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Employee 4 -->
+
+    <bean id="emp4" class="com.cognizant.ormlearn.model.Employee">
+        <property name="id" value="4"/>
+        <property name="name" value="Arun"/>
+        <property name="salary" value="40000"/>
+        <property name="permanent" value="false"/>
+        <property name="department" ref="dept1"/>
+        <property name="skillList">
+            <set>
+                <ref bean="skill1"/>
+                <ref bean="skill2"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Employee 5 -->
+
+    <bean id="emp5" class="com.cognizant.ormlearn.model.Employee">
+        <property name="id" value="5"/>
+        <property name="name" value="Divya"/>
+        <property name="salary" value="55000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="dept2"/>
+        <property name="skillList">
+            <set>
+                <ref bean="skill1"/>
+                <ref bean="skill2"/>
+                <ref bean="skill3"/>
+            </set>
+        </property>
+    </bean>
+
+    <!-- Employee List -->
+
+    <bean id="employeeList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="emp1"/>
+                <ref bean="emp2"/>
+                <ref bean="emp3"/>
+                <ref bean="emp4"/>
+                <ref bean="emp5"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
