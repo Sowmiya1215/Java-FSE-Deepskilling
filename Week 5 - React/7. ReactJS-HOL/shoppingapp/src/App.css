@@ -1,0 +1,13 @@
+.App{
+    text-align:center;
+    margin-top:30px;
+}
+
+table{
+    margin:auto;
+    border-collapse:collapse;
+}
+
+th{
+    background-color:lightblue;
+}
